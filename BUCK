@@ -48,15 +48,19 @@ cxx_library(
   name = 'libsodium',
   header_namespace = '',
   exported_headers = merge_dicts({
+    'sodium/version.h': ':version.h',
+  },
+  subdir_glob([
+    ('src/libsodium/include', '*.h'),
+    ('src/libsodium/include', 'sodium/*.h'),
+  ])),
+  headers = merge_dicts({
     'version.h': ':version.h',
   },
   subdir_glob([
     ('src/libsodium/include/sodium', '*.h'),
-    ('src/libsodium/include', '*.h'),
-  ])),
-  headers = subdir_glob([
     ('src/libsodium/include/sodium', 'private/*.h'),
-  ]),
+  ])),
   srcs = glob([
     'src/libsodium/**/*.c',
   ]),
