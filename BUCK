@@ -45,7 +45,7 @@ genrule(
 )
 
 cxx_library(
-  name = 'libsodium',
+  name = 'sodium',
   header_namespace = '',
   exported_headers = merge_dicts({
     'sodium/version.h': ':version.h',
